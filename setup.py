@@ -15,8 +15,8 @@ conda_include_dir = '/'.join(torch_dir.split('/')[:-4]) + '/include'
 extra = {'cxx': ['-std=c++11', '-fopenmp'], 'nvcc': ['-std=c++11', '-Xcompiler', '-fopenmp']}
 
 setup(
-    name='scn-12152018-cuda10',
-    version='0.2',
+    name='scn-cuda10',
+    version='0.2.12182018',
     description='Submanifold (Spatially) Sparse Convolutional Networks https://arxiv.org/abs/1706.01307, original author Benjamin Graham (benjamingraham@fb.com',
     author='Facebook AI Research (forked and sheel distributed by DLP)',
     author_email='contact@deeplearnphysics.org',
