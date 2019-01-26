@@ -16,7 +16,7 @@ extra = {'cxx': ['-std=c++11', '-fopenmp'], 'nvcc': ['-std=c++11', '-Xcompiler',
 
 setup(
     name='scn-cuda10',
-    version='0.2.12182018',
+    version='0.2.20181218',
     description='Submanifold (Spatially) Sparse Convolutional Networks https://arxiv.org/abs/1706.01307, original author Benjamin Graham (benjamingraham@fb.com',
     author='Facebook AI Research (forked and sheel distributed by DLP)',
     author_email='contact@deeplearnphysics.org',
