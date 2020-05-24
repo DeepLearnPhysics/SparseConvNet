@@ -17,8 +17,8 @@ conda_include_dir = '/'.join(torch_dir.split('/')[:-4]) + '/include'
 extra = {'cxx': ['-std=c++14', '-fopenmp'], 'nvcc': ['-std=c++14', '-Xcompiler', '-fopenmp']}
 
 setup(
-    name='scn-cuda10',
-    version='0.2.12182018',
+    name='scn-cuda10.2',
+    version='0.2.05232020',
     description='Submanifold (Spatially) Sparse Convolutional Networks https://arxiv.org/abs/1706.01307, original author Benjamin Graham (benjamingraham@fb.com',
     author='Facebook AI Research (forked and sheel distributed by DLP)',
     author_email='contact@deeplearnphysics.org',
@@ -28,12 +28,12 @@ setup(
       CUDAExtension('sparseconvnet.SCN',
         [
          'sparseconvnet/SCN/cuda.cu', 'sparseconvnet/SCN/sparseconvnet_cuda.cpp', 'sparseconvnet/SCN/pybind.cpp'],
-        include_dirs=[this_dir+'/sparseconvnet/SCN/'],
+        include_dirs=[conda_include_dir,this_dir+'/sparseconvnet/SCN/'],
         extra_compile_args=extra)
       if torch.cuda.is_available()  else
       CppExtension('sparseconvnet.SCN',
         ['sparseconvnet/SCN/pybind.cpp', 'sparseconvnet/SCN/sparseconvnet_cpu.cpp'],
-        include_dirs=[this_dir+'/sparseconvnet/SCN/'],
+        include_dirs=[conda_include_dir,this_dir+'/sparseconvnet/SCN/'],
         extra_compile_args=extra['cxx'])],
     cmdclass={'build_ext': BuildExtension},
     zip_safe=False,
